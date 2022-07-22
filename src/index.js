@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const postgraphile = require('./postgraphile')
 const { checkJwt, handleAuthExceptions } = require('./auth')
+const notifications = require('./routes/notifications')
 
 const { PORT, AUTH_TYPE } = process.env
 
@@ -19,5 +20,7 @@ if ('jwt' === AUTH_TYPE) {
 }
 
 app.use(postgraphile);
+
+app.use("/api/notifications", notifications)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
