@@ -302,10 +302,10 @@
   dependencies:
     tslib "^2.0.1"
 
-"@graphile/pg-pubsub@^4.12.2":
-  version "4.12.2"
-  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.12.2.tgz#7572aebdc4af550c784c50c2882c87e9ad1e4f86"
-  integrity sha512-2HvfxvFxe6yEO0vMJQKZINakvWkAUiEFqgN4NMFdP5wOGGJQOK92IWougHyqscRsj/3QasSdtNamladohh9J0w==
+"@graphile/pg-pubsub@^4.12.3":
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/@graphile/pg-pubsub/-/pg-pubsub-4.13.0.tgz#fc7929dc43047b10b1e62cb915fe2e416beb9724"
+  integrity sha512-FMXCLXTxUa3bVKooU+qenYNsf/eRXsIjEiXxydBg9j6Y3ucJOh2ZHiqvOfF0uWRsQoa2EqBnELscsqvtJFNwmw==
   dependencies:
     "@types/debug" "^4.1.4"
     "@types/pg" ">=6 <9"

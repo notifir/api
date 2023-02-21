@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/notifir/api#readme",
   "dependencies": {
-    "@graphile/pg-pubsub": "^4.12.2",
+    "@graphile/pg-pubsub": "^4.12.3",
     "ajv": "^8.11.0",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
