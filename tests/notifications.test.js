@@ -108,7 +108,7 @@ describe("testing /notifications route", () => {
     done()
   })
 
-  it('should return 400 if notification recipients are not specified', async done => {
+  it('should return 400 if notification recipient is not specified', async done => {
     const data = {
       type: "test-notification"
     }
@@ -122,15 +122,15 @@ describe("testing /notifications route", () => {
 
     expect(errorResult).toStrictEqual({
       error: "bad_request",
-      message: "Field 'recipients' is required and cannot be empty.",
+      message: "Field 'recipient' is required and cannot be empty.",
     })
     done()
   })
 
-  it('should return 400 if notification recipients field is empty', async done => {
+  it('should return 400 if notification recipient field is empty', async done => {
     const data = {
       type: "test-notification",
-      recipients: []
+      recipient: ""
     }
     const { body: errorResult } = await request(app)
       .post("/api/notifications")
@@ -142,7 +142,7 @@ describe("testing /notifications route", () => {
 
     expect(errorResult).toStrictEqual({
       error: "bad_request",
-      message: "Field 'recipients' is required and cannot be empty.",
+      message: "Field 'recipient' is required and cannot be empty.",
     })
     done()
   })
@@ -150,7 +150,7 @@ describe("testing /notifications route", () => {
   it('should return 201 and create notification', async done => {
     const data = {
       type: "test-notification",
-      recipients: ["test"]
+      recipient: "test"
     }
     const { body: result } = await request(app)
       .post("/api/notifications")

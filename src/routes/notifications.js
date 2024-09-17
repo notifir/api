@@ -28,18 +28,18 @@ router.use(auth)
 router.post('/',
   validate([
     body('type').notEmpty().withMessage('Field \'type\' is required and cannot be empty.'),
-    body('recipients').isArray({ min: 1 }).withMessage('Field \'recipients\' is required and cannot be empty.'),
+    body('recipient').notEmpty().withMessage('Field \'recipient\' is required and cannot be empty.'),
   ]),
   async (req, res) => {
-    const { type, recipients, payload, action_url } = req.body
+    const { type, recipient, payload, action_url } = req.body
     const project = await fetchProjectByKey(req.headers['x-api-key'])
-    const values = recipients.map(recipient => ({ type, payload, user_id: recipient, project_id: project.id, action_url }));
+    const values = { type, payload, user_id: recipient, project_id: project.id, action_url };
 
     try {
       const notifications = await db('notifications').insert(values).returning('id')
       return res.status(201).json({ notifications })
     } catch(e) {
-      console.error('Failed to create notifications', e)
+      console.error('Failed to create notification', e)
       return res.status(500).json({ error: 'internal_server_error', message: `An error occurred while creating new notification: ${e.message}` })
     }
 })
